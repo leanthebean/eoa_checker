@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVM Address Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>EVM Address Checker</h1>
+        <p class="description">
+            Check if an EVM address is an EOA (Externally Owned Account) or a Smart Contract across multiple chains
+        </p>
+        
+        <div class="input-section">
+            <div class="chain-selector-wrapper">
+                <label for="chainSelector">Select Chain:</label>
+                <select id="chainSelector" class="chain-selector">
+                    <option value="ethereum">Ethereum</option>
+                    <option value="base">Base</option>
+                    <option value="polygon">Polygon</option>
+                    <option value="arbitrum">Arbitrum</option>
+                </select>
+            </div>
+            <input 
+                type="text" 
+                id="addressInput" 
+                placeholder="Enter EVM address (0x...)"
+                class="address-input"
+            >
+            <button id="checkButton" class="check-button">Check Address</button>
+        </div>
+        
+        <div id="result" class="result hidden">
+            <div class="result-header">
+                <h3 id="resultTitle"></h3>
+                <div id="resultIcon" class="result-icon"></div>
+            </div>
+            <div id="resultDetails" class="result-details"></div>
+        </div>
+        
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Checking address...</p>
+        </div>
+        
+        <div id="error" class="error hidden">
+            <p id="errorMessage"></p>
+        </div>
+        
+        <div class="info-section">
+            <h3>What does this check?</h3>
+            <ul>
+                <li><strong>EOA (Externally Owned Account):</strong> Regular wallet addresses controlled by private keys</li>
+                <li><strong>Smart Contract:</strong> Addresses that contain executable code</li>
+                <li><strong>Smart Wallet:</strong> Contract-based wallets (detected by common patterns)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
